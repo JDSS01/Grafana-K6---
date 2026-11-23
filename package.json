@@ -1,0 +1,29 @@
+{
+  "name": "jest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "cobertura": "jest --coverage",
+    "mutacao": "stryker run",
+    "mutacao.log": "stryker run --logLevel trace",
+    "start:k6-server": "node k6/server.js",
+    "test:k6:smoke": "k6 run k6/smoke.js",
+    "test:k6:load": "node -e \"const { spawnSync } = require('node:child_process'); const r = spawnSync('k6', ['run', 'k6/load.js'], { stdio: 'inherit', env: { ...process.env, K6_WEB_DASHBOARD: 'true', K6_WEB_DASHBOARD_EXPORT: 'k6/report.html' } }); if (r.error) console.error('Erro ao executar k6:', r.error.message); process.exit(r.status ?? 1);\""
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/k6/"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@stryker-mutator/core": "^9.0.1",
+    "@stryker-mutator/jest-runner": "^9.0.1",
+    "jest": "^29.7.0"
+  }
+}
