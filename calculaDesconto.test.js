@@ -89,7 +89,7 @@ test("Desconto de 10% -> Compra = 400 - Todos os Caminhos Básicos", () => {
 });
 
 test("Desconto de 5% - Todos os Caminhos Básicos", () => {
-  expect(calculaTaxaDesconto(false, 'madeira', 200)).toBe(5);
+  expect(calculaTaxaDesconto(false, 'madeira', 2020)).toBe(5);
 });
 // Extremos imediatamente abaixo de cada faixa (Análise de Valor Limite)
 
